@@ -8,10 +8,17 @@ using namespace tinyxml2;
 
 #define cameraXML "Astra.xml"
 
-void ReadXML()
+int ReadXML()
 {
     XMLDocument xmlDoc;
-    xmlDoc.LoadFile(cameraXML);
+    XMLError rc = XML_SUCCESS;
+    rc = xmlDoc.LoadFile(cameraXML);
+    if (rc != XML_SUCCESS)
+    {
+        printf("\nNot find %s\n", cameraXML);
+        return 0;
+    }
+
     XMLElement *scene = xmlDoc.RootElement();
     XMLElement *surface = scene->FirstChildElement("node");
     while (surface)

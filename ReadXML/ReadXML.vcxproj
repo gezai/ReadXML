@@ -87,6 +87,9 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="tinyxml2.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Astra.xml" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
