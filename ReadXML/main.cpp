@@ -1,0 +1,38 @@
+
+
+#include "iostream"
+#include "tinyxml2.h"
+
+using namespace std;
+using namespace tinyxml2;
+
+void ReadXML()
+{
+    XMLDocument xmlDoc;
+    xmlDoc.LoadFile("XMLFile.xml");
+    XMLElement *scene = xmlDoc.RootElement();
+    XMLElement *surface = scene->FirstChildElement("node");
+    while (surface)
+    {
+        XMLElement *surfaceChild = surface->FirstChildElement();
+        const char* content;
+        const XMLAttribute *attributeOfSurface = surface->FirstAttribute();
+        cout << attributeOfSurface->Name() << ":" << attributeOfSurface->Value() << endl;
+        while (surfaceChild)
+        {
+            content = surfaceChild->GetText();
+            surfaceChild = surfaceChild->NextSiblingElement();
+            cout << content << endl;
+        }
+        surface = surface->NextSiblingElement();
+    }
+
+}
+
+int main()
+{
+    ReadXML();
+
+    getchar();
+    return 0;
+}
