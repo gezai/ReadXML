@@ -6,10 +6,12 @@
 using namespace std;
 using namespace tinyxml2;
 
+#define cameraXML "Astra.xml"
+
 void ReadXML()
 {
     XMLDocument xmlDoc;
-    xmlDoc.LoadFile("XMLFile.xml");
+    xmlDoc.LoadFile(cameraXML);
     XMLElement *scene = xmlDoc.RootElement();
     XMLElement *surface = scene->FirstChildElement("node");
     while (surface)
